@@ -102,7 +102,7 @@ class Template(object):
             elif (not it and section[2] == '^') or (it and section[2] != '^'):
                 replacer = self._render_dictionary(inner, it)
 
-            template = literal(template.replace(section, replacer))
+            template = template.replace(section, replacer)
 
         return template
 
