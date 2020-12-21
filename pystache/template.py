@@ -47,7 +47,7 @@ class Template(object):
     modifiers = Modifiers()
 
     def __init__(self, template=None, context=None, **kwargs):
-        from view import View
+        from pystache.view import View
 
         self.template = template
 
