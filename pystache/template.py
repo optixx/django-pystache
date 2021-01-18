@@ -84,11 +84,11 @@ class Template(object):
             if it and isinstance(it, collections.Callable):
                 replacer = it(inner)
             # Dictionary
-            elif it and hasattr(it, 'keys') and hasattr(it, '__getitem__'):
+            elif it and isinstance(it, collections.abc.Mapping):
                 if section[2] != '^':
                     replacer = self._render_dictionary(inner, it)
             # Lists
-            elif it and hasattr(it, '__iter__'):
+            elif it and isinstance(it, collections.abc.Sequence) and not isinstance(it, (str, bytes)):
                 if section[2] != '^':
                     replacer = self._render_list(inner, it)
             # Other objects
